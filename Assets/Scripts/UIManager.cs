@@ -47,6 +47,7 @@ public class UIManager : MonoBehaviour
 
     public void OnBackToMain()
     {
+        GameStateManager.instance.TogglePause();
         SceneManager.LoadScene("Menu-UI");
         _mainMenuPanel.SetActive(true);
         _inGameOverlay.SetActive(false);
