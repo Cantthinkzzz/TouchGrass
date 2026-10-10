@@ -7,6 +7,9 @@ public class Fog : MonoBehaviour
 
     [SerializeField] private Transform _player;
 
+    [Header("Settings")]
+    [SerializeField] private bool _fogEnabled = true;
+
     [Range(0f, 1f)]
     [SerializeField] private float _radiusExtension = 0f;
 
@@ -20,6 +23,9 @@ public class Fog : MonoBehaviour
     [SerializeField] private float _edgeSoftness = 2f;
 
     [SerializeField] private Color _fogColor = new Color(0f, 0f, 0f, 1f);
+
+    private static readonly int FogEnabledID =
+        Shader.PropertyToID("_FogEnabled");
 
     private static readonly int PlayerPositionID =
         Shader.PropertyToID("_FogPlayerPosition");
@@ -68,6 +74,11 @@ public class Fog : MonoBehaviour
 
     private void UpdateFog()
     {
+        Shader.SetGlobalFloat(
+            FogEnabledID,
+            _fogEnabled ? 1f : 0f
+        );
+
         // Fallback or editor check if player is not assigned
         if (_player != null)
         {

@@ -866,6 +866,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Fog
   _player: {fileID: 2012549863}
+  _fogEnabled: 0
   _radiusExtension: 1
   _startRadius: 2
   _endRadius: 6
@@ -1023,6 +1024,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3690576845728923948, guid: ba2c937498426c2a8a4d8754aa81a7e3, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3690576845728923948, guid: ba2c937498426c2a8a4d8754aa81a7e3, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3690576845728923948, guid: ba2c937498426c2a8a4d8754aa81a7e3, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3690576845728923948, guid: ba2c937498426c2a8a4d8754aa81a7e3, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3859956910831183736, guid: ba2c937498426c2a8a4d8754aa81a7e3, type: 3}
       propertyPath: m_Name
       value: UIManager
@@ -1078,6 +1095,22 @@ PrefabInstance:
     - target: {fileID: 6401733371865481601, guid: ba2c937498426c2a8a4d8754aa81a7e3, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -254.74998
+      objectReference: {fileID: 0}
+    - target: {fileID: 8330059620563521869, guid: ba2c937498426c2a8a4d8754aa81a7e3, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8330059620563521869, guid: ba2c937498426c2a8a4d8754aa81a7e3, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8330059620563521869, guid: ba2c937498426c2a8a4d8754aa81a7e3, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8330059620563521869, guid: ba2c937498426c2a8a4d8754aa81a7e3, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8672522171192338010, guid: ba2c937498426c2a8a4d8754aa81a7e3, type: 3}
       propertyPath: m_IsActive
