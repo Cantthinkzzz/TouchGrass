@@ -17,10 +17,12 @@ public class GameStateManager : MonoBehaviour
         if(isPaused) {
             Time.timeScale = 1;
             isPaused = false;
+            UIManager.Instance.OnUnpause();
         }
         else {
             Time.timeScale = 0;
             isPaused = true;
+            UIManager.Instance.OnPause();
         }
     }
 }

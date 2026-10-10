@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 public class PlayerMove : MonoBehaviour
@@ -7,6 +8,8 @@ public class PlayerMove : MonoBehaviour
     public bool setToMove = false;
     private Vector2 movementVector;
     private Vector3 moveDirection;
+    [SerializeField]
+    private float interactionDistance = 50.0f;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -21,6 +24,19 @@ public class PlayerMove : MonoBehaviour
         {
             moveDirection = new Vector3(movementVector.x, 0.0f, movementVector.y);
             transform.position += moveSpeed * Time.deltaTime * moveDirection;
+        }
+        if (Input.GetMouseButtonDown(0))
+        {
+            RaycastHit hit;
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            if(Physics.Raycast(ray, out hit))
+            {
+                IInteractable interactable = hit.collider.gameObject.GetComponent<IInteractable>();
+                if(interactable != null)
+                {
+                    if(Vector3.Distance(transform.position, hit.collider.transform.position) < interactionDistance) interactable.Interact();
+                }
+            }
         }
     }
 
