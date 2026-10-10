@@ -66,6 +66,8 @@ public class UIManager : MonoBehaviour
         if (_mainMenuPanel.activeSelf)
             return;
 
+        GameStateManager.instance.isPaused = false;
+
         _pauseMenuPanel.SetActive(false);
     }
 }
