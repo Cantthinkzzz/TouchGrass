@@ -223,7 +223,7 @@ GameObject:
   - component: {fileID: 2138173140141296105}
   - component: {fileID: 7156552764959735402}
   m_Layer: 5
-  m_Name: Main Menu
+  m_Name: Main Menu Panel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -828,9 +828,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80661e950810e848aad57ec6436b67e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UIManager
-  _main_menu_panel: {fileID: 1265879988968530883}
-  _in_game_overlay: {fileID: 8672522171192338010}
-  _pause_menu_panel: {fileID: 4025194302710013713}
+  _mainMenuPanel: {fileID: 1265879988968530883}
+  _inGameOverlay: {fileID: 8672522171192338010}
+  _pauseMenuPanel: {fileID: 4025194302710013713}
 --- !u!1 &3984769445358171409
 GameObject:
   m_ObjectHideFlags: 0
@@ -918,7 +918,7 @@ GameObject:
   - component: {fileID: 5089782614552529344}
   - component: {fileID: 9166369821643834843}
   m_Layer: 5
-  m_Name: Pause Menu
+  m_Name: Pause Menu Panel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1827,7 +1827,7 @@ GameObject:
   - component: {fileID: 6277568749859600267}
   - component: {fileID: 3755726741701015318}
   m_Layer: 5
-  m_Name: Gameplay Overlay
+  m_Name: In Game Overlay
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -1,4 +1,3 @@
-using Unity.VectorGraphics;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -7,19 +6,19 @@ public class UIManager : MonoBehaviour
     public static UIManager Instance;
 
     [SerializeField]
-    private GameObject _main_menu_panel;
+    private GameObject _mainMenuPanel;
 
     [SerializeField]
-    private GameObject _in_game_overlay;
+    private GameObject _inGameOverlay;
 
     [SerializeField]
-    private GameObject _pause_menu_panel;
+    private GameObject _pauseMenuPanel;
 
     private bool paused = false;
 
     void Start()
     {
-        // Stick with one instance of UIManager.
+        // Stick with one instance of UIManager, can be used in multiple scenes anyway.
         if (Instance == null)
         {
             Instance = this;
@@ -31,7 +30,8 @@ public class UIManager : MonoBehaviour
             return;
         }
 
-        _pause_menu_panel.SetActive(false);
+        // Make sure the pause menu panel is always inactive at the beginning.
+        _pauseMenuPanel.SetActive(false);
     }
 
     void Update()
@@ -55,32 +55,32 @@ public class UIManager : MonoBehaviour
     public void OnPlay()
     {
         SceneManager.LoadScene("Gameplay-1");
-        _main_menu_panel.SetActive(false);
-        _in_game_overlay.SetActive(true);
-        _pause_menu_panel.SetActive(false);
+        _mainMenuPanel.SetActive(false);
+        _inGameOverlay.SetActive(true);
+        _pauseMenuPanel.SetActive(false);
     }
 
     public void OnBackToMain()
     {
         SceneManager.LoadScene("Menu-UI");
-        _main_menu_panel.SetActive(true);
-        _in_game_overlay.SetActive(false);
-        _pause_menu_panel.SetActive(false);
+        _mainMenuPanel.SetActive(true);
+        _inGameOverlay.SetActive(false);
+        _pauseMenuPanel.SetActive(false);
     }
 
     public void OnPause()
     {
-        if (_main_menu_panel.activeSelf)
+        if (_mainMenuPanel.activeSelf)
             return;
 
-        _pause_menu_panel.SetActive(true);
+        _pauseMenuPanel.SetActive(true);
     }
 
     public void OnUnpause()
     {
-        if (_main_menu_panel.activeSelf)
+        if (_mainMenuPanel.activeSelf)
             return;
 
-        _pause_menu_panel.SetActive(false);
+        _pauseMenuPanel.SetActive(false);
     }
 }
