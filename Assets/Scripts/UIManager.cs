@@ -39,7 +39,7 @@ public class UIManager : MonoBehaviour
 
     public void OnPlay()
     {
-        SceneManager.LoadScene("Gameplay-1");
+        SceneManager.LoadScene("Gameplay-3D");
         _mainMenuPanel.SetActive(false);
         _inGameOverlay.SetActive(true);
         _pauseMenuPanel.SetActive(false);
