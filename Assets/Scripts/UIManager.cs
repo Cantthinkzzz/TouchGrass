@@ -14,8 +14,6 @@ public class UIManager : MonoBehaviour
     [SerializeField]
     private GameObject _pauseMenuPanel;
 
-    private bool paused = false;
-
     void Start()
     {
         // Stick with one instance of UIManager, can be used in multiple scenes anyway.
@@ -32,19 +30,6 @@ public class UIManager : MonoBehaviour
 
         // Make sure the pause menu panel is always inactive at the beginning.
         _pauseMenuPanel.SetActive(false);
-    }
-
-    void Update()
-    {
-        if (false)
-        {
-            if (!paused)
-                OnPause();
-            else
-                OnUnpause();
-
-            paused = !paused;
-        }
     }
 
     public void OnQuit()
