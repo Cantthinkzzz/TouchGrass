@@ -70,4 +70,11 @@ public class UIManager : MonoBehaviour
 
         _pauseMenuPanel.SetActive(false);
     }
+    public void BackButton()
+    {
+        if (_mainMenuPanel.activeSelf)
+            return;
+        GameStateManager.instance.UnPauseTime();
+        _pauseMenuPanel.SetActive(false);
+    }
 }

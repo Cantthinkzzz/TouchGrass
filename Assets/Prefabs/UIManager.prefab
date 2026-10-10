@@ -1118,7 +1118,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1177453955538722487}
         m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
-        m_MethodName: OnUnpause
+        m_MethodName: BackButton
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

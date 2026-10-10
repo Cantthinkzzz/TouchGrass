@@ -153,6 +153,7 @@ GameObject:
   - component: {fileID: 8953263943304936232}
   - component: {fileID: 3609479153999152506}
   - component: {fileID: 5900791108828707472}
+  - component: {fileID: 8468573459672269582}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -425,3 +426,23 @@ MonoBehaviour:
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
+--- !u!114 &8468573459672269582
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7769803990971748217}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3cabe2a8171193f4f82c13772f402542, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
+  touchTexture: {fileID: 2800000, guid: 8de23f7b6fc2fb74ba5feed3ecfe3b2e, type: 3}
+  sightTexture: {fileID: 2800000, guid: 8e070dc09a0c8544596be1e2de13f479, type: 3}
+  hearingTexture: {fileID: 2800000, guid: b9f992bbe205c814a874b93681884745, type: 3}
+  smellTexture: {fileID: 2800000, guid: 6c85615c792351a489d9981d99661012, type: 3}
+  tasteTexture: {fileID: 2800000, guid: bf60d60012e9587428280831cec56742, type: 3}
+  cursorMode: 0
+  isCursorNormal: 1
+  hotSpot: {x: 0, y: 0}

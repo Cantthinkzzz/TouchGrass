@@ -25,4 +25,9 @@ public class GameStateManager : MonoBehaviour
             UIManager.Instance.OnPause();
         }
     }
+    public void UnPauseTime()
+    {
+        Time.timeScale = 1;
+        isPaused = false;
+    }
 }
