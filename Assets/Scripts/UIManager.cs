@@ -6,7 +6,10 @@ public class UIManager : MonoBehaviour
 {
     public static UIManager Instance;
 
+    [SerializeField]
     private GameObject _main_menu_panel;
+
+    [SerializeField]
     private GameObject _in_game_overlay;
 
     void Start()

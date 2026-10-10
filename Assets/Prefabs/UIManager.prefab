@@ -570,6 +570,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80661e950810e848aad57ec6436b67e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UIManager
+  _main_menu_panel: {fileID: 1265879988968530883}
+  _in_game_overlay: {fileID: 8672522171192338010}
 --- !u!1 &4775909583969435783
 GameObject:
   m_ObjectHideFlags: 0
@@ -1271,7 +1273,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1438732104640528694
 RectTransform:
   m_ObjectHideFlags: 0
