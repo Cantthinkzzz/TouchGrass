@@ -503,6 +503,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 724967361527031256, guid: d415c755e06041f41b1ab8632758ba8f, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.09
+      objectReference: {fileID: 0}
     - target: {fileID: 1351325096569827606, guid: d415c755e06041f41b1ab8632758ba8f, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.13991
@@ -735,7 +739,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Fog
   _player: {fileID: 2012549863}
   Enabled: 0
-  _radiusExtension: 1
+  _radiusExtension: 0
+  _lerpSpeed: 5
   _startRadius: 2
   _endRadius: 4
   _edgeSoftness: 2

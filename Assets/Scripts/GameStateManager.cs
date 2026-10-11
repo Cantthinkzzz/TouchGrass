@@ -23,6 +23,10 @@ public class GameStateManager : MonoBehaviour
     private bool smelledTheFlowers = false;
     private bool ozoneSmelled = false;
 
+    [SerializeField] private int totalRandomFlowers = 30; // Total flowers across all waves
+    [SerializeField] private int numberOfWaves = 3;         // How many expanding circle waves to spawn
+    [SerializeField] private float maxFlowerSpreadRadius = 4f; // Maximum radius of the final wave
+
     //gameobject liste su samo za editor
     public List<GameObject> touchInteractableObjects;
     private List<IInteractable> touchInteractables;
@@ -214,7 +218,9 @@ public class GameStateManager : MonoBehaviour
         //ovo je zapravo prijelaz na ono sve s kišom
     }
 
-    IEnumerator FlowerSpread()
+
+    /*
+    IEnumerator FlowerSpreadOld()
     {
         //zasada spawna cvijece u tri vala
         List<SpriteRenderer> flowerWave = new();
@@ -223,6 +229,7 @@ public class GameStateManager : MonoBehaviour
 
         for (int i = 1; i < 4; i++)
         {
+
 
             //možda zvuk pustiti
             flowerWave = new List<SpriteRenderer>
@@ -236,11 +243,13 @@ public class GameStateManager : MonoBehaviour
                 Instantiate(flowerPrefab, startingFlowerPosition + new Vector3(-i*Mathf.Sqrt(2)/2, 0, i*Mathf.Sqrt(2)/2), flowerRotation).GetComponent<SpriteRenderer>(),
                 Instantiate(flowerPrefab, startingFlowerPosition + new Vector3(-i*Mathf.Sqrt(2)/2, 0, -i*Mathf.Sqrt(2)/2), flowerRotation).GetComponent<SpriteRenderer>()
             };
+
             color = new Color(1.0f, 1.0f, 1.0f, 0.0f);
             foreach (SpriteRenderer renderer in flowerWave)
             {
                 renderer.color = color;
             }
+
             t = 0.0f;
             while (t < 1)
             {
@@ -253,13 +262,71 @@ public class GameStateManager : MonoBehaviour
                 yield return null;
             }
 
-
-
-
         }
         //postavljamo ozon/vjetar da je interactable
+
         windInteractable.SetInteractable(true);
         //dodati nes drugo s vjetrom?
+    }
+    */
+
+    IEnumerator FlowerSpread()
+    {
+        int flowersPerWave = Mathf.Max(1, totalRandomFlowers / numberOfWaves);
+
+        for (int w = 1; w <= numberOfWaves; w++)
+        {
+            List<SpriteRenderer> flowerWave = new();
+            Color color = new Color(1.0f, 1.0f, 1.0f, 0.0f);
+
+            // Calculate expanding ring distance brackets for this wave
+            float minRadius = (maxFlowerSpreadRadius / numberOfWaves) * (w - 1);
+            float maxRadius = (maxFlowerSpreadRadius / numberOfWaves) * w;
+
+            // Generate random flowers within this specific distance ring (wave)
+            for (int i = 0; i < flowersPerWave; i++)
+            {
+                float randomAngle = Random.Range(0f, 360f) * Mathf.Deg2Rad;
+
+                // Distribute uniformly between minRadius and maxRadius for this wave.
+                float randomDistance = Mathf.Sqrt(Random.Range(minRadius * minRadius, maxRadius * maxRadius));
+
+                Vector3 randomOffset = new Vector3(
+                    Mathf.Cos(randomAngle) * randomDistance,
+                    0f,
+                    Mathf.Sin(randomAngle) * randomDistance
+                );
+
+                Vector3 spawnPos = startingFlowerPosition + randomOffset;
+
+                GameObject spawnedFlower = Instantiate(flowerPrefab, spawnPos, flowerRotation);
+                SpriteRenderer renderer = spawnedFlower.GetComponent<SpriteRenderer>();
+
+                if (renderer != null)
+                {
+                    renderer.color = color;
+                    flowerWave.Add(renderer);
+                }
+            }
+
+            float t = 0.0f;
+            while (t < 1)
+            {
+                color.a = Mathf.Clamp01(Mathf.Lerp(0.0f, 1.0f, t));
+                foreach (SpriteRenderer renderer in flowerWave)
+                {
+                    if (renderer != null)
+                    {
+                        renderer.color = color;
+                    }
+                }
+                t += Time.deltaTime / flowerSpawnTime;
+                yield return null;
+            }
+        }
+
+        // Postavljamo ozon/vjetar da je interactable
+        windInteractable.SetInteractable(true);
     }
 
     //stavljanje krizica na overlay ovisno o poziciji koja je definirana u interactable

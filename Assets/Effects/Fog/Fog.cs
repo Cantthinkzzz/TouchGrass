@@ -58,7 +58,7 @@ public class Fog : MonoBehaviour
 
     private void Update()
     {
-        // Smoothly lerp towards the target extension during gameplay
+
         if (Application.isPlaying && !Mathf.Approximately(_radiusExtension, _targetRadiusExtension))
         {
             _radiusExtension = Mathf.Lerp(_radiusExtension, _targetRadiusExtension, Time.deltaTime * _lerpSpeed);
