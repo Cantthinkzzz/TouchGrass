@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 public class GameStateManager : MonoBehaviour
 {
@@ -34,12 +35,23 @@ public class GameStateManager : MonoBehaviour
     public GameObject windInteractableObject;
     private IInteractable windInteractable;
 
+    public GameObject appleInteractableObject;
+    private IInteractable appleInteractable;
+
+
 
     public GameObject flowerPrefab; 
 
     private Vector3 startingFlowerPosition;
     private Quaternion flowerRotation;
     private float flowerSpawnTime = 0.5f;
+
+    public List<Image> images;
+    public List<Sprite> touchSprites;
+    public List<Sprite> hearingSprites;
+    public List<Sprite> smellSprites;
+    public List<Sprite> tasteSprites;
+    public List<GameObject> crosses;
 
 
 
@@ -52,7 +64,7 @@ public class GameStateManager : MonoBehaviour
         startingFlowerPosition = flowerInteractableObject.transform.position;
         flowerRotation = flowerInteractableObject.transform.rotation;
         
-        //pretvorbe radimo na pocetku i onda ignoriramo game objecte
+        //pretvorbe radimo na pocetku i onda ignoriramo game objecte (ne mozemo serializirati interface)
         touchInteractables = new List<IInteractable>();
         foreach(GameObject interactable in touchInteractableObjects)
         {
@@ -67,6 +79,7 @@ public class GameStateManager : MonoBehaviour
 
         flowerInteractable = flowerInteractableObject.GetComponent<IInteractable>();
         windInteractable = windInteractableObject.GetComponent<IInteractable>();
+        appleInteractable = appleInteractableObject.GetComponent<IInteractable>();
         
 
 
@@ -102,11 +115,18 @@ public class GameStateManager : MonoBehaviour
             {
                interactable.SetInteractable(true); 
             }
+            for(int i = 0; i < 4; i++)
+            {
+                images[i].sprite = touchSprites[i];
+                crosses[i].SetActive(false);
+            }
+            Destroy(images[4].transform.parent.gameObject);
             //TODO: UPDATE UI, MOZDA JOS NES SA PRIJELAZOM ILI MAGLOM
 
         }
     }
 
+    //količina magle
     public float GetFogValue()
     {
         //kasnije možemo dodati custom vrijednosti npr 1, 0.8, 0.5, 0.4, 0.3, 0.0, zasad samo gledamo omjer
@@ -118,13 +138,22 @@ public class GameStateManager : MonoBehaviour
     public void ReceiveTouch()
     {
         touchCount+=1;
+        //grayscale vrijednost se prenosi preko communication managera!!
         CommunicationManager.instance.PassTheSaturation(GetSaturationValue());
+
         if(touchCount == totalTouchInteractables)
         {
             foreach(IInteractable interactable in hearingInteractables)
             {
                 interactable.SetInteractable(true);
             }
+            //swappanje spriteova
+            for(int i = 0; i < 3; i++)
+            {
+                images[i].sprite = hearingSprites[i];
+                crosses[i].SetActive(false);
+            }
+            Destroy(images[3].transform.parent.gameObject);
             //mislim da ne treba nista drugo napraviti nakon što su svi touchable objekti dodirnuti
         }
     }
@@ -132,7 +161,7 @@ public class GameStateManager : MonoBehaviour
     public float GetSaturationValue()
     {
         //kasnije možemo dodati custom vrijednosti npr 0, 0.3, 0.4, 0.5, 0.8, 1.0, zasad samo gledamo omjer
-        return touchCount/totalTouchInteractables;
+        return ((float)touchCount)/totalTouchInteractables;
     }
 
     public void ReceiveHearing()
@@ -142,7 +171,11 @@ public class GameStateManager : MonoBehaviour
         if(hearingCount == totalHearingInteractables)
         {
             flowerInteractable.SetInteractable(true);
-            windInteractable.SetInteractable(true);
+            images[0].sprite = smellSprites[0];
+            images[1].sprite = smellSprites[1];
+            crosses[0].SetActive(false);
+            crosses[1].SetActive(false);
+            Destroy(images[2].transform.parent.gameObject);
             //također mislim da ne treba ništa drugo nakon što je sve poslušano
         }
     }
@@ -157,6 +190,25 @@ public class GameStateManager : MonoBehaviour
     {
         smelledTheFlowers = true;
         StartCoroutine(FlowerSpread());
+        //na kraju korutine ozon/vjetar/whatever postaje interactable
+    }
+
+    //ovo je zapravo ozon
+    public void SmellTheWind()
+    {
+        ozoneSmelled = true;
+        images[0].sprite = tasteSprites[0];
+        crosses[0].SetActive(false);
+        Destroy(images[1].transform.parent.gameObject);
+        //prelazimo na okus
+        appleInteractable.SetInteractable(true);
+
+
+    }
+    public void EatApple()
+    {
+        //TODO
+        //ovo je zapravo prijelaz na ono sve s kišom
     }
 
     IEnumerator FlowerSpread()
@@ -202,8 +254,15 @@ public class GameStateManager : MonoBehaviour
 
 
         }
+        //postavljamo ozon/vjetar da je interactable
         windInteractable.SetInteractable(true);
-        //dodati nes drugo s vjetrom
+        //dodati nes drugo s vjetrom?
+    }
+
+    //stavljanje krizica na overlay ovisno o poziciji koja je definirana u interactable
+    public void CrossOff(int index)
+    {
+        crosses[index].SetActive(true);
     }
 
 

@@ -4,6 +4,11 @@ public class BasicInteractable : MonoBehaviour, IInteractable
 {
     public Sense sense;
 
+    public int GetIndex()
+    {
+        return 0;
+    }
+
     public Sense getSense()
     {
         return sense;

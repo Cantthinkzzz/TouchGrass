@@ -4,6 +4,13 @@ public class TouchInteractable : MonoBehaviour, IInteractable
 {
     public Sense sense = Sense.TOUCH;
     public bool isInteractable = true;
+    public int index;
+
+    public int GetIndex()
+    {
+        return index;
+    }
+
     public Sense getSense()
     {
         return sense;
@@ -13,6 +20,7 @@ public class TouchInteractable : MonoBehaviour, IInteractable
     {
         if(isInteractable) {//TODO: dodati zvuk, mby efekt
             SetInteractable(false);
+            GameStateManager.instance.CrossOff(GetIndex());
             GameStateManager.instance.ReceiveTouch();
         }
         
