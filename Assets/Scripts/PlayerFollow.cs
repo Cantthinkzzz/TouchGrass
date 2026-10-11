@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class PlayerFollow : MonoBehaviour
 {
-    [SerializeField] private Transform playerTransform; // Drag your player here in the Inspector
+    [SerializeField] private Transform playerTransform;
     private Vector3 offset;
 
     void Start()
