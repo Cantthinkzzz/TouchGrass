@@ -42,6 +42,9 @@ public class GameStateManager : MonoBehaviour
     public GameObject appleInteractableObject;
     private IInteractable appleInteractable;
 
+    public AudioSource staticNoiseSource;
+    public AudioClip staticNoise;
+
 
 
     public GameObject flowerPrefab;
@@ -84,6 +87,8 @@ public class GameStateManager : MonoBehaviour
         flowerInteractable = flowerInteractableObject.GetComponent<IInteractable>();
         windInteractable = windInteractableObject.GetComponent<IInteractable>();
         appleInteractable = appleInteractableObject.GetComponent<IInteractable>();
+        staticNoiseSource.clip = staticNoise;
+        staticNoiseSource.Play();
 
 
 
@@ -174,7 +179,8 @@ public class GameStateManager : MonoBehaviour
     public void ReceiveHearing()
     {
         hearingCount += 1;
-        CommunicationManager.instance.PassTheNoise(GetNoiseValue());
+        //CommunicationManager.instance.PassTheNoise(GetNoiseValue());
+        staticNoiseSource.volume = GetNoiseValue();
         if (hearingCount == totalHearingInteractables)
         {
             flowerInteractable.SetInteractable(true);

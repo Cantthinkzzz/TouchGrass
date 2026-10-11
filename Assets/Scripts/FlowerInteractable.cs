@@ -4,6 +4,13 @@ public class FlowerInteractable : MonoBehaviour, IInteractable
 {
     public Sense sense = Sense.SMELL;
     public bool isInteractable = true;
+    public AudioClip clip;
+    private AudioSource source;
+
+    void Start()
+    {
+        source = GetComponent<AudioSource>();
+    }
 
     public int GetIndex()
     {
@@ -21,6 +28,11 @@ public class FlowerInteractable : MonoBehaviour, IInteractable
             SetInteractable(false);
             GameStateManager.instance.CrossOff(GetIndex());
             GameStateManager.instance.SmellAFlower();
+            if(clip!= null)
+            {
+                source.clip = clip;
+                source.Play();
+            }
         }
         
     }

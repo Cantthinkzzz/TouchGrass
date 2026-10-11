@@ -6,6 +6,12 @@ public class AppleInteractable : MonoBehaviour, IInteractable
     public bool isInteractable = false;
 
     public Sprite bittenApple;
+    public AudioSource audioSource;
+    public AudioClip audioClip;
+    void Start()
+    {
+        audioSource = GetComponent<AudioSource>();
+    }
 
     public int GetIndex()
     {
@@ -24,6 +30,11 @@ public class AppleInteractable : MonoBehaviour, IInteractable
             GameStateManager.instance.CrossOff(GetIndex());
             GameStateManager.instance.EatApple();
             this.gameObject.GetComponent<SpriteRenderer>().sprite = bittenApple;
+            if(audioClip!= null)
+            {
+                audioSource.clip = audioClip;
+                audioSource.Play();
+            }
         }
         
     }
