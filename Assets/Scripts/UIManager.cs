@@ -16,6 +16,9 @@ public class UIManager : MonoBehaviour
     [SerializeField]
     private GameObject _pauseMenuPanel;
 
+    [SerializeField]
+    private GameObject _winPanel;
+
     void Start()
     {
         // Stick with one instance of UIManager, can be used in multiple scenes anyway.
@@ -78,6 +81,13 @@ public class UIManager : MonoBehaviour
 
     public void OnWin()
     {
-        
+        _winPanel.SetActive(true);
+        StartCoroutine(WaitAndMainMenu());
+    }
+
+    private IEnumerator WaitAndMainMenu()
+    {
+        yield return new WaitForSeconds(10);
+        OnBackToMain();
     }
 }

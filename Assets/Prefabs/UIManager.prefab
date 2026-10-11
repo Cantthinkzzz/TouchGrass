@@ -1028,6 +1028,96 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!1 &2036085880199645610
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3604446735491776483}
+  - component: {fileID: 6996284404348403272}
+  - component: {fileID: 1357847234371620290}
+  - component: {fileID: 5828736154484213772}
+  m_Layer: 5
+  m_Name: Win Panel
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &3604446735491776483
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2036085880199645610}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8672467111775782265}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!222 &6996284404348403272
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2036085880199645610}
+  m_CullTransparentMesh: 1
+--- !u!114 &1357847234371620290
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2036085880199645610}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
+  m_Material: {fileID: 0}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 1
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!114 &5828736154484213772
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2036085880199645610}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a88baa5c88d8e164fab5a7a3a883a279, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Fadeout
+  _fadeDuration: 3
+  _displayDuration: 3
 --- !u!1 &2493996538458926789
 GameObject:
   m_ObjectHideFlags: 0
@@ -1063,6 +1153,7 @@ RectTransform:
   - {fileID: 1438732104640528694}
   - {fileID: 1975401366244089779}
   - {fileID: 9060485166953437415}
+  - {fileID: 3604446735491776483}
   m_Father: {fileID: 3385433920197332017}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -1421,9 +1512,7 @@ MonoBehaviour:
   _mainMenuPanel: {fileID: 1265879988968530883}
   _inGameOverlay: {fileID: 8672522171192338010}
   _pauseMenuPanel: {fileID: 4025194302710013713}
-  _rainAgainPanel: {fileID: 3207240593308531888}
-  _fadeDuration: 6
-  _displayDuration: 6
+  _winPanel: {fileID: 0}
 --- !u!1 &3984769445358171409
 GameObject:
   m_ObjectHideFlags: 0
@@ -2045,7 +2134,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 491.4, y: 50}
+  m_SizeDelta: {x: 686.8, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4617536972531385025
 CanvasRenderer:
@@ -2075,7 +2164,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: ...oh, rain again?
+  m_text: ...oh, another cloudy day??
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 26568b559800b9f4bbdbbefb62c38a17, type: 2}
   m_sharedMaterial: {fileID: -5968661676413036698, guid: 26568b559800b9f4bbdbbefb62c38a17, type: 2}
