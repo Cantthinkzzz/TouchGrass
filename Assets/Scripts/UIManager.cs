@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.Video;
 
 public class UIManager : MonoBehaviour
 {
@@ -89,6 +90,10 @@ public class UIManager : MonoBehaviour
 
     private IEnumerator WaitAndMainMenu()
     {
+        _winPanel.SetActive(true);
+        _winPanel.GetComponent<VideoPlayer>().Play();
+        yield return new WaitForSeconds(8);
+        _winPanel.SetActive(false);
         _thankYouPanel.SetActive(true);
         yield return new WaitForSeconds(5);
         OnBackToMain();

@@ -316,6 +316,22 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: -4903900681034450527, guid: 0ac8b35637c329f41901deca1c69e812, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: -4903900681034450527, guid: 0ac8b35637c329f41901deca1c69e812, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: b1d7c48ceba3bff46b256d52e2cbb224, type: 2}
+    - target: {fileID: -4903900681034450527, guid: 0ac8b35637c329f41901deca1c69e812, type: 3}
+      propertyPath: 'm_Materials.Array.data[1]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 3e11533a03be3104e9fad5644d714a85, type: 2}
+    - target: {fileID: -4903900681034450527, guid: 0ac8b35637c329f41901deca1c69e812, type: 3}
+      propertyPath: 'm_Materials.Array.data[2]'
+      value: 
+      objectReference: {fileID: 2100000, guid: d50404dc0a9e7884d879a181af76f643, type: 2}
     - target: {fileID: 919132149155446097, guid: 0ac8b35637c329f41901deca1c69e812, type: 3}
       propertyPath: m_Name
       value: Lil Guy Animation Walk
