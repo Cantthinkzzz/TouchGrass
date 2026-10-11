@@ -20,7 +20,6 @@ public class PlayerMove : MonoBehaviour
 
     void Start()
     {
-        // If animator wasn't assigned in the inspector, try to grab it automatically
         if (animator == null)
         {
             animator = GetComponent<Animator>();
@@ -42,12 +41,10 @@ public class PlayerMove : MonoBehaviour
             }
         }
 
-        // Update the animator with the movement magnitude (0 when idle, up to 1 when moving)
         if (animator != null)
         {
             float currentSpeed = setToMove ? movementVector.magnitude : 0f;
             animator.SetFloat("Speed", currentSpeed);
-            // Note: Make sure your Animator has a float parameter named "Speed"
         }
     }
 
