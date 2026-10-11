@@ -741,7 +741,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Fog
   _player: {fileID: 2012549863}
-  Enabled: 1
+  Enabled: 0
   _radiusExtension: 1
   _lerpSpeed: 5
   _startRadius: 2
