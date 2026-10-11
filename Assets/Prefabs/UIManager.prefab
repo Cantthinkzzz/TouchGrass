@@ -1217,6 +1217,7 @@ GameObject:
   - component: {fileID: 9060485166953437415}
   - component: {fileID: 219462358835177655}
   - component: {fileID: 6061881175302715660}
+  - component: {fileID: 7249494468477397052}
   m_Layer: 5
   m_Name: Rain Again Panel
   m_TagString: Untagged
@@ -1282,6 +1283,20 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &7249494468477397052
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3207240593308531888}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a88baa5c88d8e164fab5a7a3a883a279, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Fadeout
+  _fadeDuration: 3
+  _displayDuration: 3
 --- !u!1 &3796216963524615486
 GameObject:
   m_ObjectHideFlags: 0
