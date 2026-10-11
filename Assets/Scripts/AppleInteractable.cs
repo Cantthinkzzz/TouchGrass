@@ -5,6 +5,8 @@ public class AppleInteractable : MonoBehaviour, IInteractable
     public Sense sense = Sense.TASTE;
     public bool isInteractable = false;
 
+    public Sprite bittenApple;
+
     public int GetIndex()
     {
         return 0;
@@ -21,6 +23,7 @@ public class AppleInteractable : MonoBehaviour, IInteractable
             SetInteractable(false);
             GameStateManager.instance.CrossOff(GetIndex());
             GameStateManager.instance.EatApple();
+            this.gameObject.GetComponent<SpriteRenderer>().sprite = bittenApple;
         }
         
     }
