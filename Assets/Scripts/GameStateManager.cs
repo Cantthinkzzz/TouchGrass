@@ -29,7 +29,7 @@ public class GameStateManager : MonoBehaviour
 
     public List<GameObject> hearingInteractableObjects;
     private List<IInteractable> hearingInteractables;
-    
+
     public GameObject flowerInteractableObject;
     private IInteractable flowerInteractable;
     public GameObject windInteractableObject;
@@ -40,7 +40,7 @@ public class GameStateManager : MonoBehaviour
 
 
 
-    public GameObject flowerPrefab; 
+    public GameObject flowerPrefab;
 
     private Vector3 startingFlowerPosition;
     private Quaternion flowerRotation;
@@ -63,16 +63,16 @@ public class GameStateManager : MonoBehaviour
         instance = this;
         startingFlowerPosition = flowerInteractableObject.transform.position;
         flowerRotation = flowerInteractableObject.transform.rotation;
-        
+
         //pretvorbe radimo na pocetku i onda ignoriramo game objecte (ne mozemo serializirati interface)
         touchInteractables = new List<IInteractable>();
-        foreach(GameObject interactable in touchInteractableObjects)
+        foreach (GameObject interactable in touchInteractableObjects)
         {
             touchInteractables.Add(interactable.GetComponent<IInteractable>());
         }
 
         hearingInteractables = new List<IInteractable>();
-        foreach(GameObject interactable in hearingInteractableObjects)
+        foreach (GameObject interactable in hearingInteractableObjects)
         {
             hearingInteractables.Add(interactable.GetComponent<IInteractable>());
         }
@@ -80,19 +80,21 @@ public class GameStateManager : MonoBehaviour
         flowerInteractable = flowerInteractableObject.GetComponent<IInteractable>();
         windInteractable = windInteractableObject.GetComponent<IInteractable>();
         appleInteractable = appleInteractableObject.GetComponent<IInteractable>();
-        
+
 
 
     }
-    
+
     public void TogglePause()
     {
-        if(isPaused) {
+        if (isPaused)
+        {
             Time.timeScale = 1;
             isPaused = false;
             UIManager.Instance.OnUnpause();
         }
-        else {
+        else
+        {
             Time.timeScale = 0;
             isPaused = true;
             UIManager.Instance.OnPause();
@@ -107,15 +109,15 @@ public class GameStateManager : MonoBehaviour
 
     public void ReceiveSight()
     {
-        sightCount+=1;
+        sightCount += 1;
         CommunicationManager.instance.PassTheFog(GetFogValue());
-        if(sightCount == totalSightInteractables)
+        if (sightCount == totalSightInteractables)
         {
-            foreach(IInteractable interactable in touchInteractables)
+            foreach (IInteractable interactable in touchInteractables)
             {
-               interactable.SetInteractable(true); 
+                interactable.SetInteractable(true);
             }
-            for(int i = 0; i < 4; i++)
+            for (int i = 0; i < 4; i++)
             {
                 images[i].sprite = touchSprites[i];
                 crosses[i].SetActive(false);
@@ -123,6 +125,7 @@ public class GameStateManager : MonoBehaviour
             Destroy(images[4].transform.parent.gameObject);
             //TODO: UPDATE UI, MOZDA JOS NES SA PRIJELAZOM ILI MAGLOM
 
+            Monochrome.Instance.MakeSensoryColorful();
         }
     }
 
@@ -131,24 +134,24 @@ public class GameStateManager : MonoBehaviour
     {
         //kasnije možemo dodati custom vrijednosti npr 1, 0.8, 0.5, 0.4, 0.3, 0.0, zasad samo gledamo omjer
         Debug.Log(sightCount);
-        Debug.Log(1.0f - sightCount/totalSightInteractables);
-        return 1.0f - ((float)sightCount)/totalSightInteractables;
+        Debug.Log(1.0f - sightCount / totalSightInteractables);
+        return 1.0f - ((float)sightCount) / totalSightInteractables;
     }
 
     public void ReceiveTouch()
     {
-        touchCount+=1;
+        touchCount += 1;
         //grayscale vrijednost se prenosi preko communication managera!!
         CommunicationManager.instance.PassTheSaturation(GetSaturationValue());
 
-        if(touchCount == totalTouchInteractables)
+        if (touchCount == totalTouchInteractables)
         {
-            foreach(IInteractable interactable in hearingInteractables)
+            foreach (IInteractable interactable in hearingInteractables)
             {
                 interactable.SetInteractable(true);
             }
             //swappanje spriteova
-            for(int i = 0; i < 3; i++)
+            for (int i = 0; i < 3; i++)
             {
                 images[i].sprite = hearingSprites[i];
                 crosses[i].SetActive(false);
@@ -161,14 +164,14 @@ public class GameStateManager : MonoBehaviour
     public float GetSaturationValue()
     {
         //kasnije možemo dodati custom vrijednosti npr 0, 0.3, 0.4, 0.5, 0.8, 1.0, zasad samo gledamo omjer
-        return ((float)touchCount)/totalTouchInteractables;
+        return ((float)touchCount) / totalTouchInteractables;
     }
 
     public void ReceiveHearing()
     {
-        hearingCount+=1;
+        hearingCount += 1;
         CommunicationManager.instance.PassTheNoise(GetNoiseValue());
-        if(hearingCount == totalHearingInteractables)
+        if (hearingCount == totalHearingInteractables)
         {
             flowerInteractable.SetInteractable(true);
             images[0].sprite = smellSprites[0];
@@ -183,7 +186,7 @@ public class GameStateManager : MonoBehaviour
     public float GetNoiseValue()
     {
         //kasnije može biti custom, npr 1, 0.5, 0.3, 0.0
-        return 1 - ((float)hearingCount)/totalHearingInteractables;
+        return 1 - ((float)hearingCount) / totalHearingInteractables;
     }
 
     public void SmellAFlower()
@@ -217,8 +220,8 @@ public class GameStateManager : MonoBehaviour
         List<SpriteRenderer> flowerWave = new();
         Color color;
         float t;
-        
-        for(int i = 1; i < 4; i++)
+
+        for (int i = 1; i < 4; i++)
         {
 
             //možda zvuk pustiti
@@ -234,7 +237,7 @@ public class GameStateManager : MonoBehaviour
                 Instantiate(flowerPrefab, startingFlowerPosition + new Vector3(-i*Mathf.Sqrt(2)/2, 0, -i*Mathf.Sqrt(2)/2), flowerRotation).GetComponent<SpriteRenderer>()
             };
             color = new Color(1.0f, 1.0f, 1.0f, 0.0f);
-            foreach(SpriteRenderer renderer in flowerWave)
+            foreach (SpriteRenderer renderer in flowerWave)
             {
                 renderer.color = color;
             }
@@ -242,7 +245,7 @@ public class GameStateManager : MonoBehaviour
             while (t < 1)
             {
                 color.a = Mathf.Clamp01(Mathf.Lerp(0.0f, 1.0f, t));
-                foreach(SpriteRenderer renderer in flowerWave)
+                foreach (SpriteRenderer renderer in flowerWave)
                 {
                     renderer.color = color;
                 }
@@ -250,7 +253,7 @@ public class GameStateManager : MonoBehaviour
                 yield return null;
             }
 
-        
+
 
 
         }

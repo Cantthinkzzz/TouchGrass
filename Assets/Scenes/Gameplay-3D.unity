@@ -543,6 +543,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1578817944517760338, guid: d415c755e06041f41b1ab8632758ba8f, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 9e828c0fd9a5b9345941ceba37640677, type: 2}
     - target: {fileID: 4153002480267087727, guid: d415c755e06041f41b1ab8632758ba8f, type: 3}
       propertyPath: 'images.Array.data[0]'
       value: 
@@ -583,10 +587,46 @@ PrefabInstance:
       propertyPath: 'crosses.Array.data[4]'
       value: 
       objectReference: {fileID: 1719841677}
+    - target: {fileID: 5502285792225063183, guid: d415c755e06041f41b1ab8632758ba8f, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 9e828c0fd9a5b9345941ceba37640677, type: 2}
+    - target: {fileID: 5535888584005963209, guid: d415c755e06041f41b1ab8632758ba8f, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 6a9173dfc5c3f0d4e9650675bbe9c96e, type: 2}
+    - target: {fileID: 5957582271120314947, guid: d415c755e06041f41b1ab8632758ba8f, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 9e828c0fd9a5b9345941ceba37640677, type: 2}
+    - target: {fileID: 6169311943781041106, guid: d415c755e06041f41b1ab8632758ba8f, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 6a9173dfc5c3f0d4e9650675bbe9c96e, type: 2}
     - target: {fileID: 6556343762008059796, guid: d415c755e06041f41b1ab8632758ba8f, type: 3}
       propertyPath: m_Name
       value: GameStateManager (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 7182352456152547527, guid: d415c755e06041f41b1ab8632758ba8f, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 6a9173dfc5c3f0d4e9650675bbe9c96e, type: 2}
+    - target: {fileID: 7537042776452012903, guid: d415c755e06041f41b1ab8632758ba8f, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 9e828c0fd9a5b9345941ceba37640677, type: 2}
+    - target: {fileID: 8024412593526156757, guid: d415c755e06041f41b1ab8632758ba8f, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 6a9173dfc5c3f0d4e9650675bbe9c96e, type: 2}
+    - target: {fileID: 8252649722761979195, guid: d415c755e06041f41b1ab8632758ba8f, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 9e828c0fd9a5b9345941ceba37640677, type: 2}
+    - target: {fileID: 8909065004839395126, guid: d415c755e06041f41b1ab8632758ba8f, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 9e828c0fd9a5b9345941ceba37640677, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -679,7 +719,8 @@ MonoBehaviour:
   - {fileID: 2100000, guid: ad23c4efb2ffacf46a924c71e5fc0808, type: 2}
   - {fileID: 2100000, guid: 9e828c0fd9a5b9345941ceba37640677, type: 2}
   _sensoryInteractablesMaterial: {fileID: 2100000, guid: 6a9173dfc5c3f0d4e9650675bbe9c96e, type: 2}
-  Color: 1
+  _lerpSpeed: 3.5
+  Color: 0
 --- !u!114 &1753371159
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -693,10 +734,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Fog
   _player: {fileID: 2012549863}
-  _fogEnabled: 0
+  Enabled: 0
   _radiusExtension: 1
   _startRadius: 2
-  _endRadius: 6
+  _endRadius: 4
   _edgeSoftness: 2
   _fogColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
 --- !u!4 &1753371160

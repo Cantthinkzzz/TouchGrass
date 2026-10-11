@@ -13,10 +13,12 @@ public class CommunicationManager : MonoBehaviour
 
     public void PassTheFog(float amount)
     {
-        //todo: passati float shaderu, 1 za punu maglu, 0 bez magle
-        //ako je 0 mozda se moze iskljuciti magla u sumi ako smo na tome
-        Debug.Log(amount);
         Fog.Instance.SetFog(amount);
+
+        if (amount == 0.0)
+        {
+            Fog.Instance.Enabled = false;
+        }
     }
 
 
@@ -29,7 +31,7 @@ public class CommunicationManager : MonoBehaviour
 
     public void PassTheSaturation(float amount)
     {
-        //todo: passati float shaderu, 0 za full grayscale, 1 za normalni saturation (ovo je za generalnu scenu)
+        Monochrome.Instance.SetColor(amount);
     }
 
     public void PassTheNoise(float amount)
