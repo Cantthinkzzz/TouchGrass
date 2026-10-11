@@ -14,4 +14,19 @@ public class BasicInteractable : MonoBehaviour, IInteractable
         Debug.Log("Clicked!");
         return true;
     }
+
+    public bool IsInteractable()
+    {
+        return true;
+    }
+
+    public void SetInteractable(bool value)
+    {
+        return;
+    }
+
+    void IInteractable.Interact()
+    {
+        Debug.Log("What are you doing here?");
+    }
 }

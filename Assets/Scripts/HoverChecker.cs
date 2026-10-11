@@ -24,7 +24,7 @@ public class HoverChecker : MonoBehaviour
         if(Physics.Raycast(ray, out hit))
             {
                 IInteractable interactable = hit.collider.gameObject.GetComponent<IInteractable>();
-                if(interactable != null)
+                if(interactable != null && interactable.IsInteractable()==true)
                 {
                     //Debug.Log("Hovering!");
                     Sense sense = interactable.getSense();

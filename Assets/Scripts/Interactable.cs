@@ -1,7 +1,10 @@
 public interface IInteractable
 {
-    public bool Interact();
+    public void Interact();
     public Sense getSense();
+
+    public bool IsInteractable();
+    public void SetInteractable(bool value);
 }
 
 public enum Sense

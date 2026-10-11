@@ -113,4 +113,13 @@ public class Fog : MonoBehaviour
             _fogColor
         );
     }
+
+    public void SetFog(float value)
+    {
+        _radiusExtension = value;
+        Shader.SetGlobalFloat(
+            RadiusExtensionID,
+            _radiusExtension
+        );
+    }
 }
