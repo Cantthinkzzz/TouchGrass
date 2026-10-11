@@ -33,6 +33,10 @@ public class HoverChecker : MonoBehaviour
                         Cursor.SetCursor(getSenseTexture(sense), hotSpot, cursorMode);
                         isCursorNormal = false;
                     }
+                    if (Input.GetMouseButtonDown(0))
+                    {
+                        interactable.Interact();
+                    }
 
                 }
             else
