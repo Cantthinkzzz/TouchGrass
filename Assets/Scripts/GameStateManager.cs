@@ -214,8 +214,7 @@ public class GameStateManager : MonoBehaviour
     }
     public void EatApple()
     {
-        //TODO
-        //ovo je zapravo prijelaz na ono sve s kišom
+        UIManager.Instance.OnWin();
     }
 
 

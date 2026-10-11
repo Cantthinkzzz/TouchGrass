@@ -75,4 +75,9 @@ public class UIManager : MonoBehaviour
         GameStateManager.instance.UnPauseTime();
         _pauseMenuPanel.SetActive(false);
     }
+
+    public void OnWin()
+    {
+        
+    }
 }
